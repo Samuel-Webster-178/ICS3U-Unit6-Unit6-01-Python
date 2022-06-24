@@ -12,30 +12,31 @@ import random
 def main():
     # I calculate the average of randomely generated numbers
 
-    # process
-    random_numbers = []
-    counter1 = 0
-    sum = 0
-    # calculate average of random numbers
-    while counter1 < 10:
-        # generate random numbers
-        random_numbers.append(round(random.uniform(1, 100), 2))
-        sum += random_numbers[counter1]
-        counter1 += 1
-    average = sum / len(random_numbers)
+    # input
+    str_repeat_number = input("How many random numbers do you want: ")
 
-    # output
-    print("Random numbers are: ", end="")
-    counter1 = 0
-    while counter1 < 10:
-        # print random numbers
-        if counter1 < 9:
-            print("{}".format(random_numbers[counter1]), end=", ")
-        else:
-            print("{}".format(random_numbers[counter1]))
-        counter1 += 1
-    print("The average is {}.".format(average))
-    print("\nDone.")
+    # process & output
+    try:
+        int_repeat_number = int(str_repeat_number)
+        random_numbers = []
+        counter1 = 0
+        sum = 0
+
+        # calculate average of random numbers
+        while counter1 < int_repeat_number:
+            # generate random numbers
+            random_numbers.append(round(random.uniform(1, 100), 2))
+            sum += random_numbers[counter1]
+            counter1 += 1
+        average = sum / len(random_numbers)
+
+        # output
+        print("\nRandom numbers are: ", random_numbers)
+        print("\nThe average is {}.".format(average))
+    except Exception:
+        print("\nInvalid Input")
+    finally:
+        print("\nDone.")
 
 
 if __name__ == "__main__":
